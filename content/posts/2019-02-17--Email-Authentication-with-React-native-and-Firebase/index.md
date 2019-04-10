@@ -1,13 +1,9 @@
 ---
-title: Two things are infinite the universe and human stupidity
-category: "sayings"
-cover: photo-1490474418585-ba9bad8fd0ea.jpg
-author: greg lobinski
+title: Email Authentication with React native and Firebase
+category: "firebase"
+cover: cover.png
+author: Krissanawat
 ---
-
-####
-
-# Email Authentication with React native and Firebase
 
 ## In each and every app, you will see several kinds of authentication like login
 
@@ -64,10 +60,12 @@ and we will back for normal mode
 
 So now, we are ready to import necessary Nativebase component to to `App.js`
 
-    import { Container, Item, Form, Input, Button, Label } from "native-base";
+```jsx
+import { Container, Item, Form, Input, Button, Label } from "native-base";
+```
 
 and after importing we will construct a user interface for the frontend form.
-
+```jsx
     render() {
 
      (
@@ -92,18 +90,18 @@ and after importing we will construct a user interface for the frontend form.
           </Container>
         );
       }
-
+```
 Once you save the code shown above and then you will be able to see the instant
 result on the screen. This concept is also known as Hot Reloading.
 
 So let’s make the form align center. To do this, we are going to play stylesheet
 properties. Just look at the code below, you can easily understand that we are
 playing with attributes in the stylesheet with containers.
-
+```jsx
     <Container style={styles.container}>
-
+```
 By just adding a comment to styling we able to make it center.
-
+```jsx
      styles = StyleSheet.create({
       container: {
         flex: 1,
@@ -112,7 +110,7 @@ By just adding a comment to styling we able to make it center.
         justifyContent: "center"
       }
     });
-
+```
 Now save the code and see the results. All components aligned center. Awesome
 let’s move on to next step:
 
@@ -120,14 +118,14 @@ let’s move on to next step:
 
 To add firebase, we need to run the command `npm i firebase --save` and the
 after import firebase on App.js as shown below:
-
-    import * as firebase from "firebase";
-
+```jsx
+import * as firebase from "firebase";
+```
 Next step is to **create firebase project. **Go to **firebase console, **create
 a project find apikey and configuration as shown in the image below:
 
 Grab config and paste to App.js as shown in the below:
-
+```jsx
     import * as firebase from "firebase";
     import { Container, Item, Form, Input, Button, Label } from "native-base";
 
@@ -141,7 +139,7 @@ Grab config and paste to App.js as shown in the below:
     };
 
     firebase.initializeApp(config);
-
+```
 Finally, we have successfully added firebase tp our project.
 
 #### Sign Up
@@ -151,17 +149,17 @@ console. Go to firebase console and enable it.
 
 Again get back to VS Code and add a signup button. So that user can fill up the
 information.
-
+```html
     <Button full rounded success style={{ marginTop: 20 }}> <Text>Signup</Text>
     </Button>
-
+```
 After adding the button you will be able to see this result with a Signin and
 signup button.
 
 Let’s code a little for signup button. You can follow along with me with all the
 steps. If you do that, there are rare chances to do mistakes and see any kind of
 error.
-
+```jsx
     export default class App extends React.Component {
       constructor(props) {
         super(props);
@@ -177,12 +175,12 @@ error.
           console.log(error.toString(error));
         }
       };
-
+```
 Now, We create a state which handles email and password from the form and
 creates SignUp function for handling firebase code.
 
 The next step is to **add form value to state with onChangeText.**
-
+```jsx
     <Item floatingLabel>
                 <Label>Email</Label>
                 <Input
@@ -199,12 +197,13 @@ The next step is to **add form value to state with onChangeText.**
                   autoCorrect={false}
                   onChangeText={password => this.setState({ password })}
                 />
-
+```
 We will trigger **SignUp function** with the **onPress event** for Signup
 button.
 
-    onPress={() => this.SignUp(this.state.email, this.state.password)}
-
+```jsx
+onPress={() => this.SignUp(this.state.email, this.state.password)}
+```
 Let’s try to save and submit form to test that we going in the right direction.
 
 After entering and hitting the signup, goto firebase console. **Hola, we have
@@ -217,7 +216,7 @@ Now we have added successfully a new user to Firebase.
 
 Let’s code for sign in button. We use code from sign up method and change a
 little bit in firebase function. So that we can achieve what we want.
-
+```jsx
     SignIn = (email, password) => {
 
      {
@@ -231,13 +230,13 @@ little bit in firebase function. So that we can achieve what we want.
           console.log(error.toString(error));
         }
       };
-
+```
 Next, use **onAuthStateChanged** to getting user’s data from firebase. So, if we
 press the button then an onPress even call through to **SignIn** Buton which
 checks for right email and password.
-
+```jsx
     onPress={() => this.SignIn(this.state.email, this.state.password)}
-
+```
 So let’s try to sign in.
 
 It works. Finally, we did it. You can see everything works absolutely fine.
@@ -248,5 +247,3 @@ We have used Expo, Nativebase, Firebase. I hope you have learned. If you got
 stuck somewhere the following
 [GitHub](https://github.com/krissnawat/react-native-firebase-tutorial) repo.
 There you will get the whole code. If you fee its worth, keep sharing.
-
-#### Learn More

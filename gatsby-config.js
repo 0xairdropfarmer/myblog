@@ -113,6 +113,12 @@ module.exports = {
             }
           },
           `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-plugin-facebook-pixel`,
+            options: {
+              pixelId: '349929655165679',
+            },
+          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {

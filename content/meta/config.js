@@ -2,7 +2,8 @@ module.exports = {
   siteTitle: "KrisBlog - a React Native Devloper", // <title>
   shortSiteTitle: "KrisBlog - a React Native Devloper", // <title> ending for posts and pages
   siteDescription: "KrisBlog - a React Native Devloper.",
-  siteUrl: "kriss.io",
+
+  siteUrl: "http://localhost",
   // pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
